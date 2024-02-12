@@ -174,14 +174,6 @@ RegisterNUICallback('kick', function(data, cb)
 	cb()
 end)
 
--- AddEventHandler('esx_dmvschool:hasEnteredMarker', function(zone)
--- 	if zone == 'DMVSchool' then
--- 		CurrentAction     = 'dmvschool_menu'
--- 		CurrentActionMsg  = TranslateCap('press_open_menu')
--- 		CurrentActionData = {}
--- 	end
--- end)
-
 AddEventHandler('esx_dmvschool:hasExitedMarker', function(zone)
 	CurrentAction = nil
 	ESX.CloseContext()
@@ -283,11 +275,6 @@ CreateThread(function()
 		if CurrentAction then
 			sleep = 0
 			ESX.ShowHelpNotification(CurrentActionMsg)
-
-			-- if (IsControlJustReleased(0, 38)) and (CurrentAction == 'dmvschool_menu') then
-			-- 	OpenDMVSchoolMenu()
-			-- 	CurrentAction = nil
-			-- end
 		end
 
 		local isInMarker  = false
@@ -366,6 +353,8 @@ CreateThread(function()
 end)
 
 
+-- Custom By Groot
+
 RegisterNetEvent('esx_dmvschool:openmenudmv')
 AddEventHandler('esx_dmvschool:openmenudmv', function()
 	OpenDMVSchoolMenu()
@@ -381,8 +370,8 @@ exports.ox_target:addBoxZone({
 		{
 			name = 'DMVSchool',
 			event = 'esx_dmvschool:openmenudmv',
-			icon = 'fa-solid fa-cube',
-			label = 'DMVSchool',
+			icon = 'fa-solid fa fa-car',
+			label = 'Get Your License',
 
 		}
 	}
